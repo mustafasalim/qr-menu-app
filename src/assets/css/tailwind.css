@@ -8,6 +8,7 @@ html {
 }
 
 .menu {
+  overflow-x: hidden;
 }
 
 .active {
