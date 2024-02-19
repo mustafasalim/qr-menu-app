@@ -7,8 +7,8 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        path: "/register",
-        element: "register",
+        index: true,
+        element: "",
       },
       {
         path: "/login",

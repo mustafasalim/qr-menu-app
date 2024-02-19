@@ -1,7 +1,7 @@
 export const menu = [
   {
     path: "/",
-    element: "All Drinks",
+    element: "All Menu",
   },
   {
     path: "/hot-coffee",

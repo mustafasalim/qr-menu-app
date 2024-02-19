@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 html {
-  background-color: #111315;
+  background-color: white;
   font-family: "Mukta", sans-serif;
 }
 
+.menu {
+}
+
 .active {
-  background-color: #252527;
+  background-color: rgb(194 65 12);
+  color: white;
 }

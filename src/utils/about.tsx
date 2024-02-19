@@ -1,4 +1,4 @@
 export const about = {
   element:
-    "   Lezzetli Bir Serüvene Davet Ediyoruz Kahve Dünyası, her damlasıylalezzeti ve sıcaklığı sunan bir kahve cennetidir. Misafirlerimize, özenl seçilmiş kahve çekirdeklerinden elde edilen özel karışımlarımızı sunarak, damaklarınıza unutulmaz bir deneyim yaşatmayı hedefliyoruz.",
+    " We Invite You on a Delicious Adventure Kahve Dünyası is a paradise of coffee that offers flavor and warmth with every drop.  ",
 }
