@@ -4,6 +4,7 @@ import Tag from "../tag"
 
 function Product() {
   const [sold, setSold] = useState<boolean>(false)
+  setSold(false)
   return (
     <div
       className={`flex ${
