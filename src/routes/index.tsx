@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import MainLayout from "../layout/MainLayout"
+import CategoryPage from "../pages/category"
+import CategoriesPage from "../pages/categories"
 
 export const router = createBrowserRouter([
   {
@@ -8,11 +10,20 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: "",
+        element: "ana sayfas",
       },
       {
-        path: "/login",
-        element: "login",
+        path: "kategoriler",
+        children: [
+          {
+            index: true,
+            element: <CategoriesPage />,
+          },
+          {
+            path: ":categorySlug",
+            element: <CategoryPage />,
+          },
+        ],
       },
     ],
   },

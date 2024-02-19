@@ -3,15 +3,21 @@ import Snowfall from "react-snowfall"
 import Header from "../Header"
 import Menu from "../../components/Menu"
 import { menu } from "../../utils/menu"
+import { useSelector } from "react-redux"
+import { RootState } from "../../context/store"
+
 function MainLayout() {
+  const toggleState = useSelector((state: RootState) => state.toggle.value)
+  const isToggle = toggleState === true ? "none" : ""
   return (
     <>
       <Header />
-      <div>
-        <Outlet />
-      </div>
       <Menu menuTitle={menu} />
-      <Snowfall snowflakeCount={90} />
+      <Snowfall
+        style={{ display: `${isToggle}` }}
+        snowflakeCount={150}
+      />
+      <Outlet />
     </>
   )
 }

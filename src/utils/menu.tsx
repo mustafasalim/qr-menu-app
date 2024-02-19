@@ -1,22 +1,22 @@
 export const menu = [
   {
     path: "/",
-    element: "All Menu",
+    element: "Main Menu",
   },
   {
-    path: "/hot-coffee",
+    path: "/kategoriler/hot-coffe",
     element: "Hot Coffee",
   },
   {
-    path: "/snacks",
+    path: "/kategoriler/snacks",
     element: "Snacks",
   },
   {
-    path: "/cold-coffee",
+    path: "/kategoriler/cold-coffee",
     element: "Cold Coffee",
   },
   {
-    path: "/dessert",
+    path: "/kategoriler/dessert",
     element: "Dessert",
   },
 ]
