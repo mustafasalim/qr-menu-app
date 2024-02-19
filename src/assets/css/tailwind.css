@@ -7,10 +7,6 @@ html {
   font-family: "Mukta", sans-serif;
 }
 
-.menu {
-  overflow-x: hidden;
-}
-
 .active {
   background-color: rgb(194 65 12);
   color: white;
