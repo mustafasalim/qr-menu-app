@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background-color: #111315;
+  font-family: "Mukta", sans-serif;
+}
+
+.active {
+  background-color: #252527;
+}
