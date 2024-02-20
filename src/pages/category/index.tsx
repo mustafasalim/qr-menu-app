@@ -15,7 +15,7 @@ const CategoryPage = () => {
 
   return (
     <div className="w-full mt-10 lg:flex lg:flex-col items-center justify-center">
-      <h1 className="lg:w-[1200px] flex items-center justify-center text-[35px] text-[#FEF7EE]">
+      <h1 className="lg:w-[1200px] flex items-center justify-center lg:justify-start text-[35px] text-[#FEF7EE]">
         {categorySlug}
       </h1>
       <div className="lg:w-[1200px] items-center justify-center mt-10 lg:items-center lg:justify-between lg:flex lg:flex-wrap  grid gap-4 lg:gap-4">
