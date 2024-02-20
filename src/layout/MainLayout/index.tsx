@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom"
 import Snowfall from "react-snowfall"
 import Header from "../Header"
-import Menu from "../../components/Menu"
+import Menu from "../../components/container/Menu"
 import { menu } from "../../utils/menu"
 import { useSelector } from "react-redux"
 import { RootState } from "../../context/store"

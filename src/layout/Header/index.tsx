@@ -1,5 +1,5 @@
 import About from "../../components/About"
-import Toggle from "../../components/toggle"
+import Toggle from "../../components/ui/toggle"
 
 function Header() {
   return (

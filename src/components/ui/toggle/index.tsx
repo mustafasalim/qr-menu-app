@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import { useDispatch } from "react-redux"
-import { _toggleSwitch } from "../../context/toggleOnOff"
+import { _toggleSwitch } from "../../../context/toggleOnOff"
 
 interface toggleOptions {
   title: string

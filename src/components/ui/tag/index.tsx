@@ -6,7 +6,7 @@ interface tagOptions {
   variant?: string
 }
 
-function Tag({ title, variant = "default" }: tagOptions) {
+function Tag({ title, variant = "default", ...props }: tagOptions) {
   return (
     <div
       className={classNames(`flex rounded-md  tex font-bold text-[20px]`, {
@@ -14,6 +14,7 @@ function Tag({ title, variant = "default" }: tagOptions) {
         "bg-yellow-500 px-2 text-[#1B1D1F]": variant === "popular",
         "bg-none text-red-500": variant === "soldout",
       })}
+      {...props}
     >
       {title}
     </div>
