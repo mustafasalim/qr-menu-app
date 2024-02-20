@@ -19,7 +19,7 @@ function Product(props: ProductProps) {
       className={classNames(
         `flex flex-col border p-2 shadow-md rounded-md w-[300px] overflow-hidden`,
         {
-          "!border-red-500 !opacity-65": stock === false,
+          "!border-red-500 !opacity-45": stock === false,
           "border-yellow-500 opacity-100": popular === true,
         }
       )}
