@@ -8,7 +8,7 @@ interface ProductProps {
   rating?: any
   productImg: any
   productTitle: string
-  productPrice: string
+  productPrice: number
 }
 
 function Product(props: ProductProps) {
@@ -24,12 +24,13 @@ function Product(props: ProductProps) {
         }
       )}
     >
-      <div>
+      <div className="bg-cover overflow-hidden">
         {popular && popular === true ? (
-          <div className="absolute p-1">
-            <Tag
-              variant="popular"
-              title="Popular"
+          <div className="absolute">
+            <img
+              width={80}
+              src="../images/best.png"
+              alt=""
             />
           </div>
         ) : (
@@ -37,7 +38,7 @@ function Product(props: ProductProps) {
         )}
 
         <img
-          className="rounded-md w-full"
+          className="rounded-md w-full max-w-[300px] max-h-[173px] object-cover "
           src={productImg}
           alt=""
         />
@@ -48,7 +49,7 @@ function Product(props: ProductProps) {
             <h1 className="text-[20px] text-[#FEF7EE]">{productTitle}</h1>
           </div>
           <div>
-            <Tag title={productPrice} />
+            <Tag title={"$" + productPrice} />
           </div>
         </div>
         <div className="flex items-center justify-between">

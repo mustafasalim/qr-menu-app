@@ -1,7 +1,7 @@
 import classNames from "classnames"
 
 interface tagOptions {
-  title: string
+  title: string | number
 
   variant?: string
 }

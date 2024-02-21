@@ -11,7 +11,7 @@ function Menu(props: menuProp) {
       {menuTitle.map((menu: any, index: number) => (
         <NavLink
           key={index}
-          className="w-[140px]  text-center shadow  bg-[#1B1D1F] hover:text-[#e7e4e1] transition-all py-2 p-4 rounded-2xl whitespace-nowrap"
+          className="w-[140px]  text-center shadow  bg-[#1B1D1F] hover:text-[#e7e4e1] transition-all py-2 p-4 rounded-md whitespace-nowrap"
           to={menu.path}
         >
           {menu.element}

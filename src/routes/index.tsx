@@ -2,6 +2,12 @@ import { createBrowserRouter } from "react-router-dom"
 import MainLayout from "../layout/MainLayout"
 import CategoryPage from "../pages/category"
 import CategoriesPage from "../pages/categories"
+import AdminLayout from "../admin/dashboard/layout/AdminLayout"
+import AdminHome from "../admin/dashboard/pages/AdminHome"
+import AdminProductsPage from "../admin/dashboard/pages/AdminProducts"
+import AdminUsers from "../admin/dashboard/pages/AdminUsers"
+import Blog from "../admin/dashboard/pages/blog"
+import PerformansPage from "../admin/dashboard/pages/AdminPerformancePage"
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +28,37 @@ export const router = createBrowserRouter([
           {
             path: ":categorySlug",
             element: <CategoryPage />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        index: true,
+        element: <AdminHome />,
+      },
+      {
+        path: "dashboard",
+        children: [
+          {
+            path: "blog",
+            element: <Blog />,
+          },
+          {
+            path: "users",
+            element: <AdminUsers />,
+          },
+          {
+            path: "performans",
+            element: <PerformansPage />,
+          },
+          {
+            path: "products",
+            element: <AdminProductsPage />,
           },
         ],
       },

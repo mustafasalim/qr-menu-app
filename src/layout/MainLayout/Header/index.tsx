@@ -1,5 +1,5 @@
-import About from "../../components/About"
-import Toggle from "../../components/ui/toggle"
+import About from "../../../components/About"
+import Toggle from "../../../components/ui/toggle"
 
 function Header() {
   return (

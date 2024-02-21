@@ -14,7 +14,7 @@ const CategoryPage = () => {
   }, [categorySlug])
 
   return (
-    <div className="w-full mt-10 lg:flex lg:flex-col items-center justify-center">
+    <div className="w-full lg:flex lg:flex-col items-center justify-center">
       <h1 className="lg:w-[1200px] flex items-center justify-center lg:justify-start text-[35px] text-[#FEF7EE]">
         {categorySlug}
       </h1>

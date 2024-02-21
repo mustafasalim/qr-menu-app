@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 html {
-  background-color: #111315;
-  font-family: "Mukta", sans-serif;
+  font-family: "Public Sans";
 }
 
 .active {
