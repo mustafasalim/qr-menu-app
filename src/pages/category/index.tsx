@@ -7,8 +7,6 @@ const CategoryPage = () => {
   let { categorySlug } = useParams()
   const coffee = coffees
 
-  console.log(coffee)
-
   useEffect(() => {
     console.log(categorySlug + "icin istege cıkıldı")
   }, [categorySlug])

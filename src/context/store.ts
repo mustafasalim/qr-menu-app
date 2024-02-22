@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
 import toggle from "./toggleOnOff"
+import modal from "./Modal"
 
 export const store = configureStore({
   reducer: {
     toggle,
+    modal,
   },
 })
 
