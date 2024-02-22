@@ -1,10 +1,7 @@
 import { useFormik } from "formik"
 import { Button, TextField } from "@mui/material"
 import { _destroyAll } from "../../../../../context/Modal"
-import {
-  destroyAllModal,
-  destroyModal,
-} from "../../../../../context/Modal/hook"
+import { destroyAllModal } from "../../../../../context/Modal/hook"
 
 interface formikConfig {
   username: string

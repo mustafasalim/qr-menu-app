@@ -1,7 +1,6 @@
 import Avatar from "@mui/material/Avatar"
 import * as React from "react"
 import { Menu, MenuItem, MenuProps, alpha, styled } from "@mui/material"
-import { FaEdit } from "react-icons/fa"
 import { IoLogOut } from "react-icons/io5"
 function UserCards() {
   const StyledMenu = styled((props: MenuProps) => (
