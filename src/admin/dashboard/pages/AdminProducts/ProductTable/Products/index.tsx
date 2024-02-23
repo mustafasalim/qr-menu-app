@@ -17,7 +17,7 @@ function Products({ product }: productProps) {
     <Menu
       elevation={0}
       anchorOrigin={{
-        vertical: "bottom",
+        vertical: "top",
         horizontal: "right",
       }}
       transformOrigin={{
