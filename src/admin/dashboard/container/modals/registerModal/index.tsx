@@ -8,7 +8,6 @@ interface formikConfig {
   email: string
   password: string
 }
-
 function RegisterModal() {
   const { handleSubmit, values, handleChange } = useFormik<formikConfig>({
     initialValues: {
