@@ -19,7 +19,7 @@ function UsersTable({ users, data, setData }: any) {
     reason?: string
   ) => {
     if (reason === "clickaway") {
-      return
+      return event
     }
 
     setOpenToast(false)

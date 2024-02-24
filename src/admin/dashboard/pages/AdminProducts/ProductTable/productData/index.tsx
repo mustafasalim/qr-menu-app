@@ -131,12 +131,9 @@ export default function DataGridDemo() {
     setOpen(true)
   }
 
-  const handleClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
+  const handleClose = (event?: any | Event, reason?: string) => {
     if (reason === "clickaway") {
-      return
+      return event
     }
 
     setOpen(false)

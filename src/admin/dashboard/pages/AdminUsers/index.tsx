@@ -1,12 +1,12 @@
 import UsersTable from "./userTable"
 import { FaPlus } from "react-icons/fa"
 import { Button } from "@mui/material"
-import { createModal, useModals } from "../../../../context/Modal/hook"
+import { createModal } from "../../../../context/Modal/hook"
 import { users as user } from "../../../../utils/users"
 import { useState } from "react"
 function AdminUsers() {
   const [data, setData] = useState(user)
-  const modals = useModals()
+
   console.log(data)
 
   return (
