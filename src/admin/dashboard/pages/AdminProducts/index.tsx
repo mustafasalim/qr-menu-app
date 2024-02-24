@@ -1,7 +1,7 @@
 import { Button } from "@mui/material"
 import { FaPlus } from "react-icons/fa"
 import { createModal } from "../../../../context/Modal/hook"
-import ProductTable from "./ProductTable"
+import DataGridDemo from "./ProductTable/productData"
 
 function AdminProductsPage() {
   return (
@@ -17,7 +17,9 @@ function AdminProductsPage() {
             New Product
           </Button>
         </div>
-        <ProductTable />
+        {/* <ProductTable /> */}
+
+        <DataGridDemo />
       </div>
     </section>
   )
