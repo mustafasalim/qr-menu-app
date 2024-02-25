@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom"
 import Snowfall from "react-snowfall"
-import Header from "./header"
 import Menu from "../../components/container/Menu"
 import { menu } from "../../constant/menu"
 import { useSelector } from "react-redux"
 import { RootState } from "../../store/store"
 import Footer from "./footer"
+import Header from "./header"
 
 function MainLayout() {
   const toggleState = useSelector((state: RootState) => state.toggle.value)
