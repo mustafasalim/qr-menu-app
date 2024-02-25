@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 
 export const useModals = () =>
   useSelector((state: RootState) => state.modal.modals)
-export const createModal = (name: any, data = false) =>
+export const createModal = (name: any, data: any = false) =>
   store.dispatch(
     _append({
       name,

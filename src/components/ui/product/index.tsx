@@ -1,5 +1,5 @@
-import Raiting from "../../ui/voteTracker"
-import Tag from "../../ui/tag"
+import Raiting from "../voteTracker"
+import Tag from "../tag"
 import classNames from "classnames"
 
 interface ProductProps {

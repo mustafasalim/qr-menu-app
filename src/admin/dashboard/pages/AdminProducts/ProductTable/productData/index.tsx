@@ -6,9 +6,12 @@ import {
   GridRenderCellParams,
   GridTreeNodeWithRender,
 } from "@mui/x-data-grid"
-import { coffees } from "../../../../../../utils/coffe"
-import { Alert, Button, Chip, Snackbar } from "@mui/material"
+import { coffees } from "../../../../../../constant/coffe"
+import { Button, Chip } from "@mui/material"
 import { FaTrashCan } from "react-icons/fa6"
+import { FaEdit } from "react-icons/fa"
+import { toast } from "react-hot-toast"
+import { createModal } from "../../../../../../store/modal/hook"
 
 const columns: GridColDef[] = [
   {
@@ -116,39 +119,23 @@ const columns: GridColDef[] = [
     headerName: "Actions",
     width: 100,
 
-    renderCell: () => {
-      return <button>silasasas</button>
+    renderCell: (props) => {
+      return (
+        <button onClick={() => createModal("productUpdate", props.row)}>
+          <FaEdit className="text-[18px] text-[#212B36]" />
+        </button>
+      )
     },
   },
 ]
 
 export default function DataGridDemo() {
-  const [data, setData] = React.useState(coffees)
+  const data = coffees
   const [rowSelectionModel, setRowSelectionModel] = React.useState<any>([])
-  const [open, setOpen] = React.useState(false)
-
-  const handleClick = () => {
-    setOpen(true)
-  }
-
-  const handleClose = (event?: any | Event, reason?: string) => {
-    if (reason === "clickaway") {
-      return event
-    }
-
-    setOpen(false)
-  }
 
   const handleDeleteClick = () => {
-    setData((data): any => {
-      const selectedIds = rowSelectionModel.map((selected: any) => selected)
-      const productList = data.filter((row) => !selectedIds.includes(row.id))
-      return productList
-    })
-    handleClick()
+    toast.success(rowSelectionModel + " " + "product deleted")
   }
-
-  console.log(data)
 
   return (
     <>
@@ -174,20 +161,6 @@ export default function DataGridDemo() {
             </Button>
           </div>
         )}
-        <Snackbar
-          open={open}
-          autoHideDuration={6000}
-          onClose={handleClose}
-        >
-          <Alert
-            onClose={handleClose}
-            severity="success"
-            variant="filled"
-            sx={{ width: "100%" }}
-          >
-            Successfuly
-          </Alert>
-        </Snackbar>
       </Box>
     </>
   )

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { adminMenu } from "../../../../utils/adminMenu"
+import { adminMenu } from "../../../../constant/adminMenu"
 
 export default function DasboardMenu() {
   return (

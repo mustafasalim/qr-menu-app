@@ -1,8 +1,9 @@
 import { Outlet } from "react-router-dom"
-import Header from "../header"
-import TitleHeader from "../titleHeader"
-import { useModals } from "../../../../context/Modal/hook"
+import Header from "./header"
+import TitleHeader from "./titleHeader"
+import { useModals } from "../../../../store/modal/hook"
 import Modal from "../../container/modals"
+import { Toaster } from "react-hot-toast"
 
 function AdminLayout() {
   const modals = useModals()
@@ -16,6 +17,7 @@ function AdminLayout() {
         <div className="w-full">
           <TitleHeader />
           <Outlet />
+          <Toaster />
         </div>
       </div>
     </div>

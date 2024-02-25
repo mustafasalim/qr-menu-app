@@ -1,4 +1,4 @@
-import About from "../../../components/About"
+import About from "./about"
 import Toggle from "../../../components/ui/toggle"
 
 function Header() {

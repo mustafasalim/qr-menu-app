@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom"
 import Snowfall from "react-snowfall"
-import Header from "./Header"
+import Header from "./header"
 import Menu from "../../components/container/Menu"
-import { menu } from "../../utils/menu"
+import { menu } from "../../constant/menu"
 import { useSelector } from "react-redux"
-import { RootState } from "../../context/store"
+import { RootState } from "../../store/store"
 import Footer from "./footer"
 
 function MainLayout() {

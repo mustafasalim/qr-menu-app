@@ -1,5 +1,5 @@
 import { IconButton } from "@mui/material"
-import { destroyAllModal } from "../../../../../../context/Modal/hook"
+import { destroyAllModal } from "../../../../../store/modal/hook"
 import { IoMdClose } from "react-icons/io"
 
 function ModalHeader({ title }: any) {

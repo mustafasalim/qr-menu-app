@@ -8,6 +8,7 @@ import AdminProductsPage from "../admin/dashboard/pages/AdminProducts"
 import AdminUsers from "../admin/dashboard/pages/AdminUsers"
 import Blog from "../admin/dashboard/pages/blog"
 import PerformansPage from "../admin/dashboard/pages/AdminPerformancePage"
+import Home from "../pages/home"
 
 export const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: "ana sayfas",
+        element: <Home />,
       },
       {
         path: "kategoriler",

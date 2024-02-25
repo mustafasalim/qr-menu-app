@@ -9,7 +9,7 @@ export const coffees = [
     votes: 65,
     popular: true,
     stock: true,
-    categories: "hot coffe",
+    categories: "lattess",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const coffees = [
     votes: 15,
     popular: true,
     stock: true,
-    categories: "hot coffe",
+    categories: "coffe",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const coffees = [
     votes: 55,
     popular: false,
     stock: true,
-    categories: "hot coffe",
+    categories: "coffe cold",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const coffees = [
     votes: 23,
     popular: false,
     stock: true,
-    categories: "hot coffe",
+    categories: "split",
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ export const coffees = [
     votes: 122,
     popular: false,
     stock: false,
-    categories: "hot coffe",
+    categories: "toast",
   },
   {
     id: 6,
@@ -69,6 +69,6 @@ export const coffees = [
     votes: 0,
     popular: false,
     stock: true,
-    categories: "hot coffe",
+    categories: "doner",
   },
 ]

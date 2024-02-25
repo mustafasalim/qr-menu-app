@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
-import Product from "../../components/container/product"
-import { coffees } from "../../utils/coffe"
+import Product from "../../components/ui/product"
+import { coffees } from "../../constant/coffe"
 
 const CategoryPage = () => {
   let { categorySlug } = useParams()

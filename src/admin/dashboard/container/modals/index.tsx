@@ -1,6 +1,6 @@
-import { useModals } from "../../../../context/Modal/hook"
-import allModal from "../../../modals"
-import ModalHeader from "./components/modalHeader"
+import { useModals } from "../../../../store/modal/hook"
+import allModal from "../../../../../modals"
+import ModalHeader from "./modalHeader"
 
 function Modal() {
   const modals = useModals()

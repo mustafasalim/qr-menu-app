@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"
-import toggle from "./toggleOnOff"
-import modal from "./Modal"
+import toggle from "./toggle-on-offf"
+import modal from "./modal"
 
 export const store = configureStore({
   reducer: {
