@@ -5,7 +5,7 @@ import { menu } from "../../constant/menu"
 import { useSelector } from "react-redux"
 import { RootState } from "../../store/store"
 import Footer from "./footer"
-import Header from "./header"
+import Header from "../MainLayout/header"
 
 function MainLayout() {
   const toggleState = useSelector((state: RootState) => state.toggle.value)
