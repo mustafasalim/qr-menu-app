@@ -31,7 +31,7 @@ function ProductForm() {
 
   return (
     <form
-      className="grid gap-4"
+      className="grid gap-4 "
       onSubmit={formik.handleSubmit}
     >
       <label className="grid gap-2">

@@ -4,7 +4,7 @@ function ProductAddOrUpdateModal({ mode }: any) {
   console.log(mode)
 
   return (
-    <section className="grid gap-4">
+    <section className="p-4 border rounded-lg">
       <ProductForm />
     </section>
   )

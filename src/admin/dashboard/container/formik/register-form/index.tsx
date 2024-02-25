@@ -29,6 +29,7 @@ function RegisterForm() {
       onSubmit={handleSubmit}
     >
       <label className="grid">
+        <h1>User-Name</h1>
         <TextField
           placeholder="username"
           size="small"
@@ -39,8 +40,9 @@ function RegisterForm() {
           onChange={handleChange}
         />
       </label>
-
+      <hr />
       <label className="grid">
+        <h1>E-mail</h1>
         <TextField
           placeholder="email"
           size="small"
@@ -51,7 +53,9 @@ function RegisterForm() {
           onChange={handleChange}
         />
       </label>
+      <hr />
       <label className="grid">
+        <h1>Password</h1>
         <TextField
           size="small"
           placeholder="password"
@@ -63,10 +67,9 @@ function RegisterForm() {
         />
       </label>
       <hr />
-
       <div className="flex">
         <Button
-          className="!bg-[#212B36] !rounded-lg !font-bold !text-white"
+          variant="contained"
           type="submit"
         >
           Kaydet

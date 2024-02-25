@@ -3,7 +3,7 @@ import RegisterForm from "../../formik/register-form"
 
 function RegisterModal() {
   return (
-    <section className="flex items-center justify-center">
+    <section className=" p-4 border rounded-lg">
       <RegisterForm />
     </section>
   )
