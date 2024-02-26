@@ -9,12 +9,12 @@ interface formikConfig {
   email: string
   password: string
 }
-function RegisterForm() {
+function RegisterForm({ data }: any) {
   const { handleSubmit, values, handleChange } = useFormik<formikConfig>({
     initialValues: {
-      username: "",
-      email: "",
-      password: "",
+      username: data ? data.userName : "",
+      email: data ? data.email : "",
+      password: data ? data.password : "",
     },
     onSubmit: (values) => {
       console.log(values)
@@ -59,7 +59,7 @@ function RegisterForm() {
         <TextField
           size="small"
           placeholder="password"
-          type="password"
+          type="text"
           name="password"
           id="password"
           value={values.password}

@@ -17,10 +17,10 @@ function Product(props: ProductProps) {
   return (
     <div
       className={classNames(
-        `flex flex-col border p-2 shadow-md rounded-md w-[300px] overflow-hidden`,
+        `flex flex-col  p-2 shadow  rounded-md w-[300px] overflow-hidden`,
         {
-          "!border-red-500 !opacity-45": stock === false,
-          "border-yellow-500 opacity-100": popular === true,
+          "shadow-red-500 shadow-md !opacity-45": stock === false,
+          "shadow-yellow-500 shadow-md opacity-100": popular === true,
         }
       )}
     >

@@ -37,6 +37,9 @@ const columns: GridColDef[] = [
     width: 200,
     sortable: false,
     disableColumnMenu: true,
+    renderCell: () => {
+      return <div>***************</div>
+    },
   },
   {
     field: "actions",
@@ -46,7 +49,7 @@ const columns: GridColDef[] = [
 
     renderCell: (props) => {
       return (
-        <button onClick={() => createModal("productUpdate", props.row)}>
+        <button onClick={() => createModal("registerUpdate", props.row)}>
           <FaEdit className="text-[18px] text-[#212B36]" />
         </button>
       )

@@ -1,6 +1,6 @@
 import LoginModal from "./src/admin/dashboard/container/modals/loginModal"
 import ProductAddOrUpdateModal from "./src/admin/dashboard/container/modals/productAddOrUpdateModal"
-import RegisterModal from "./src/admin/dashboard/container/modals/registerModal"
+import RegisterAddOrUpdateModal from "./src/admin/dashboard/container/modals/registerModal"
 
 const allModal = [
   {
@@ -9,7 +9,11 @@ const allModal = [
   },
   {
     name: "register",
-    element: <RegisterModal />,
+    element: <RegisterAddOrUpdateModal mode="REGISTER" />,
+  },
+  {
+    name: "registerUpdate",
+    element: <RegisterAddOrUpdateModal mode="EDIT" />,
   },
   {
     name: "addProduct",

@@ -5,7 +5,7 @@ export const coffees = [
     image:
       "https://csyxkpbavpcrhwqhcpyy.supabase.co/storage/v1/object/public/assets/coffee-challenge/cappuccino.jpg",
     price: 5.2,
-    rating: 4.7,
+    rating: 4.5,
     votes: 65,
     popular: true,
     stock: true,
@@ -17,7 +17,7 @@ export const coffees = [
     image:
       "https://csyxkpbavpcrhwqhcpyy.supabase.co/storage/v1/object/public/assets/coffee-challenge/house-coffee.jpg",
     price: 3.5,
-    rating: 4.85,
+    rating: 3.9,
     votes: 15,
     popular: true,
     stock: true,
@@ -29,7 +29,7 @@ export const coffees = [
     image:
       "https://csyxkpbavpcrhwqhcpyy.supabase.co/storage/v1/object/public/assets/coffee-challenge/espresso.jpg",
     price: 2.5,
-    rating: 4.9,
+    rating: 4.0,
     votes: 55,
     popular: false,
     stock: true,
@@ -41,7 +41,7 @@ export const coffees = [
     image:
       "https://csyxkpbavpcrhwqhcpyy.supabase.co/storage/v1/object/public/assets/coffee-challenge/coffee-latte.jpg",
     price: 4.5,
-    rating: 5.0,
+    rating: 4.9,
     votes: 23,
     popular: false,
     stock: true,
@@ -53,7 +53,7 @@ export const coffees = [
     image:
       "https://csyxkpbavpcrhwqhcpyy.supabase.co/storage/v1/object/public/assets/coffee-challenge/chocolate-coffee.jpg",
     price: 4.0,
-    rating: 4.65,
+    rating: 4.5,
     votes: 122,
     popular: false,
     stock: false,
@@ -64,7 +64,7 @@ export const coffees = [
     name: "Valentine Special",
     image:
       "https://csyxkpbavpcrhwqhcpyy.supabase.co/storage/v1/object/public/assets/coffee-challenge/valentine-special.jpg",
-    price: 5.5,
+    price: 3.9,
     rating: null,
     votes: 0,
     popular: false,

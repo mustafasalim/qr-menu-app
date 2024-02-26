@@ -1,6 +1,7 @@
 import { useModals } from "../../../../store/modal/hook"
 import allModal from "../../../../../modals"
 import ModalHeader from "./modalHeader"
+import { motion } from "framer-motion"
 
 function Modal() {
   const modals = useModals()
@@ -12,10 +13,16 @@ function Modal() {
           const m = allModal.find((mod) => mod.name === modal.name)
 
           return (
-            <section className="w-[600px] bg-white rounded-lg overflow-hidden">
-              <ModalHeader title={m?.name} />
-              <div className="p-4">{m?.element}</div>
-            </section>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <section className="lg:w-[600px] w-[350px] bg-white rounded-lg overflow-hidden">
+                <ModalHeader title={m?.name} />
+                <div className="p-4">{m?.element}</div>
+              </section>
+            </motion.div>
           )
         })}
       </div>

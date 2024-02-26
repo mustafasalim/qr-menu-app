@@ -8,8 +8,8 @@ function AdminProductsPage() {
   console.log(modal)
 
   return (
-    <section className="w-full h-screen flex items-start p-10 justify-center">
-      <div className="lg:w-[1200px] flex flex-col gap-y-10">
+    <section className="w-full flex items-start p-10 justify-center">
+      <div className="lg:w-[1200px] w-[350px] flex flex-col gap-y-10">
         <div className="flex items-center justify-end">
           <Button
             onClick={() => {

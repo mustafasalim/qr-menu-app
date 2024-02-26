@@ -1,4 +1,11 @@
-import { Button, MenuItem, Select, Switch, TextField } from "@mui/material"
+import {
+  Button,
+  FormControl,
+  MenuItem,
+  Select,
+  Switch,
+  TextField,
+} from "@mui/material"
 import { useFormik } from "formik"
 import { destroyAllModal } from "../../../../../store/modal/hook"
 import toast from "react-hot-toast"
@@ -12,15 +19,15 @@ interface ProductFormOptions {
   stock: boolean
 }
 
-function ProductForm() {
+function ProductForm({ data }: any) {
   const formik = useFormik<ProductFormOptions>({
     initialValues: {
-      name: "",
-      image: "",
-      price: 0,
-      rating: 0,
-      popular: false,
-      stock: false,
+      name: data ? data.name : "",
+      image: data ? data.image : "",
+      price: data ? data.price : 0,
+      rating: data ? data.rating : 0,
+      popular: data ? data.popular : false,
+      stock: data ? data.stock : false,
     },
     onSubmit: (values) => {
       console.log(values)
@@ -70,25 +77,33 @@ function ProductForm() {
         />
       </label>
       <hr />
-      <label className="grid gap-2">
+      <label className="flex items-center gap-2">
         <h1>Rating</h1>
-        <Select
-          name="rating"
-          id="rating"
-          value={formik.values.rating}
-          onChange={formik.handleChange}
+
+        <FormControl
+          sx={{ minWidth: 120 }}
+          size="small"
         >
-          <MenuItem value={4.5}>{4.5}</MenuItem>
-          <MenuItem value={3.9}>{3.9}</MenuItem>
-          <MenuItem value={4.0}>{4.0}</MenuItem>
-          <MenuItem value={4.9}>{4.9}</MenuItem>
-        </Select>
+          <Select
+            placeholder="fwaw"
+            name="rating"
+            defaultValue={formik.values.rating}
+            value={formik.values.rating}
+            onChange={formik.handleChange}
+          >
+            <MenuItem value={4.5}>{4.5}</MenuItem>
+            <MenuItem value={3.9}>{3.9}</MenuItem>
+            <MenuItem value={4.0}>{4.0}</MenuItem>
+            <MenuItem value={4.9}>{4.9}</MenuItem>
+          </Select>
+        </FormControl>
       </label>
       <hr />
       <label className="flex gap-x-4">
         <div className="flex items-center">
           <h1>Popular</h1>
           <Switch
+            checked={formik.values.popular === true}
             color="warning"
             name="popular"
             id="popular"
@@ -99,6 +114,7 @@ function ProductForm() {
         <div className="flex items-center">
           <h1>Stock</h1>
           <Switch
+            checked={formik.values.stock === true}
             name="stock"
             id="stock"
             value={formik.values.stock}

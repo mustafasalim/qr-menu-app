@@ -12,7 +12,9 @@ function AdminLayout() {
     <div>
       {modals.length > 0 && <Modal />}
       <div className="flex mx-auto bg-[#F9FAFB]">
-        <Header />
+        <div className="z-5">
+          <Header />
+        </div>
 
         <div className="w-full">
           <TitleHeader />
