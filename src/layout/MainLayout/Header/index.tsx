@@ -11,7 +11,6 @@ function Header() {
         style={{ display: `${isToggle}`, position: "relative" }}
         snowflakeCount={50}
       />
-      <hr />
     </header>
   )
 }
