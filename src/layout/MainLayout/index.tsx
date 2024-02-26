@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom"
 import Menu from "../../components/container/Menu"
 import { menu } from "../../constant/menu"
 import Footer from "./footer"
-import Header from "../MainLayout/header"
+import Header from "./header"
 
 function MainLayout() {
   return (
