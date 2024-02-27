@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
-import type { RootState } from "../store"
 
 // Define a type for the slice state
 interface modalState {
@@ -29,6 +28,5 @@ export const modal = createSlice({
 export const { _append, _destroy, _destroyAll } = modal.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const selecttoggle = (state: RootState) => state.toggle.value
 
 export default modal.reducer

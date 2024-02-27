@@ -1,6 +1,4 @@
 import classNames from "classnames"
-import { useDispatch } from "react-redux"
-import { _toggleSwitch } from "../../../store/toggle-on-offf"
 
 interface toggleOptions {
   imgUrl?: string
@@ -9,14 +7,12 @@ interface toggleOptions {
 
 function Toggle(props: toggleOptions) {
   const { imgUrl, variant } = props
-  const dispatch = useDispatch()
 
   return (
     <label className="inline-flex items-center cursor-pointer">
       <input
         type="checkbox"
         className="sr-only peer"
-        onChange={() => dispatch(_toggleSwitch(true))}
       />
       <div
         className={classNames(
