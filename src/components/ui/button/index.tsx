@@ -3,12 +3,13 @@ import classNames from "classnames"
 interface buttonOptions {
   text: string
   variant?: string
-  type: string
+  type?: any
 }
 
-function Button({ text, variant, ...props }: buttonOptions) {
+function Button({ text, variant, type }: buttonOptions) {
   return (
     <button
+      type={type}
       className={classNames(
         "p-2 px-4 rounded-md bg-slate-200 hover:opacity-45 transition-all",
         {
@@ -17,7 +18,6 @@ function Button({ text, variant, ...props }: buttonOptions) {
           "bg-yellow-500 text-white": variant === "warning",
         }
       )}
-      {...props}
     >
       {text}
     </button>
