@@ -1,15 +1,19 @@
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Product from "../../components/ui/product"
-import { coffees } from "../../constant/coffe"
+import { useDispatch, useSelector } from "react-redux"
+import { AppDispatch, RootState } from "../../store/store"
+import { fetchAllProducts } from "../../store/thunk/productsThunk/fetchThunk"
 
 const CategoryPage = () => {
+  const dispatch = useDispatch<AppDispatch>()
   let { categorySlug } = useParams()
-  const coffee = coffees
 
   useEffect(() => {
-    console.log(categorySlug + "icin istege cıkıldı")
-  }, [categorySlug])
+    dispatch(fetchAllProducts())
+  }, [dispatch])
+
+  const coffee = useSelector((state: RootState) => state.productsSlice.products)
 
   return (
     <div className="w-full lg:flex lg:flex-col items-center justify-center">
@@ -17,7 +21,7 @@ const CategoryPage = () => {
         {categorySlug}
       </h1>
       <div className="lg:w-[1200px] items-center justify-center mt-10 lg:items-center lg:justify-between lg:flex lg:flex-wrap  grid gap-4 lg:gap-4">
-        {coffee.map((product) => (
+        {coffee.map((product: any) => (
           <Product
             productImg={product.image}
             productTitle={product.name}

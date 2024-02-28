@@ -8,7 +8,13 @@ import {
 } from "@mui/material"
 import { useFormik } from "formik"
 import { destroyAllModal } from "../../../../../store/modal/hook"
-import toast from "react-hot-toast"
+import {
+  addProduct,
+  fetchAllProducts,
+  updateProduct,
+} from "../../../../../store/thunk/productsThunk/fetchThunk"
+import { useDispatch } from "react-redux"
+import { AppDispatch } from "../../../../../store/store"
 
 interface ProductFormOptions {
   name: string
@@ -20,6 +26,7 @@ interface ProductFormOptions {
 }
 
 function ProductForm({ data }: any) {
+  const dispatch = useDispatch<AppDispatch>()
   const formik = useFormik<ProductFormOptions>({
     initialValues: {
       name: data ? data.name : "",
@@ -29,10 +36,20 @@ function ProductForm({ data }: any) {
       popular: data ? data.popular : false,
       stock: data ? data.stock : false,
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
+      if (data) {
+        await dispatch(
+          updateProduct({ productId: data._id, data: values })
+        ).then(() => {
+          dispatch(fetchAllProducts())
+        })
+      } else {
+        dispatch(addProduct(values)).then(() => {
+          dispatch(fetchAllProducts())
+        })
+      }
       console.log(values)
       destroyAllModal()
-      toast.success("Product added")
     },
   })
 

@@ -2,7 +2,13 @@ import { useFormik } from "formik"
 import { Button, TextField } from "@mui/material"
 import { _destroyAll } from "../../../../../store/modal"
 import { destroyAllModal } from "../../../../../store/modal/hook"
-import { toast } from "react-hot-toast"
+import { useDispatch } from "react-redux"
+import { AppDispatch } from "../../../../../store/store"
+import {
+  authRegister,
+  fetchGetAllUsers,
+  fetchUpdateUser,
+} from "../../../../../store/thunk/usersThunk/fetchThunk"
 
 interface formikConfig {
   username: string
@@ -10,16 +16,25 @@ interface formikConfig {
   password: string
 }
 function RegisterForm({ data }: any) {
+  const dispatch = useDispatch<AppDispatch>()
   const { handleSubmit, values, handleChange } = useFormik<formikConfig>({
     initialValues: {
-      username: data ? data.userName : "",
+      username: data ? data.username : "",
       email: data ? data.email : "",
       password: data ? data.password : "",
     },
-    onSubmit: (values) => {
-      console.log(values)
+    onSubmit: async (values) => {
+      if (data) {
+        await dispatch(
+          fetchUpdateUser({ userId: data._id, data: values })
+        ).then(() => dispatch(fetchGetAllUsers()))
+      } else {
+        await dispatch(authRegister(values)).then(() => {
+          dispatch(fetchGetAllUsers())
+        })
+      }
+
       //itege çıkılacak
-      toast.success("User Added")
       destroyAllModal()
     },
   })

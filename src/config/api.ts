@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios"
 
 const baseUrl = axios.create({
-  baseURL: "https://api.github.com",
+  baseURL: "http://localhost:3000/api",
 })
 
 interface apiParamsOptions {

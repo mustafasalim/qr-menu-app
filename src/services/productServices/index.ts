@@ -7,16 +7,33 @@ export const getProducts = async (category: any) => {
   })
 }
 
-export const getAllProducts = async () => {
-  return await api({
+export const getAllProducts = () => {
+  return api({
     method: "get",
-    url: "/fakeAllProduct",
+    url: "/products",
   })
 }
 
-export const getUpdateProducts = async (productId: any) => {
-  return api({
+export const addProducts = async (data: any) => {
+  return await api({
     method: "post",
-    url: `/fakepost${productId}`,
+    url: "/products",
+    data: data,
+  })
+}
+
+export const updateProducts = async (productId: any, data: any) => {
+  return await api({
+    method: "put",
+    url: `/products/${productId}`,
+    data: data,
+  })
+}
+
+export const deleteProduct = async (productsId: any) => {
+  return await api({
+    method: "post",
+    url: `/deleteProducts`,
+    data: productsId,
   })
 }

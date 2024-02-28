@@ -6,16 +6,21 @@ import {
   GridRenderCellParams,
   GridTreeNodeWithRender,
 } from "@mui/x-data-grid"
-import { coffees } from "../../../../../../constant/coffe"
 import { Button, Chip } from "@mui/material"
 import { FaTrashCan } from "react-icons/fa6"
 import { FaEdit } from "react-icons/fa"
-import { toast } from "react-hot-toast"
 import { createModal } from "../../../../../../store/modal/hook"
+import { AppDispatch, RootState } from "../../../../../../store/store"
+import {
+  deleteProductById,
+  fetchAllProducts,
+} from "../../../../../../store/thunk/productsThunk/fetchThunk"
+
+import { useDispatch, useSelector } from "react-redux"
 
 const columns: GridColDef[] = [
   {
-    field: "id",
+    field: "_id",
     headerName: "ID",
     width: 90,
     sortable: false,
@@ -103,10 +108,17 @@ const columns: GridColDef[] = [
       )
     },
   },
-
   {
     field: "price",
     headerName: "Price(TL)",
+    type: "number",
+    width: 110,
+    sortable: false,
+    disableColumnMenu: true,
+  },
+  {
+    field: "rating",
+    headerName: "Rating",
     type: "number",
     width: 110,
     sortable: false,
@@ -130,26 +142,38 @@ const columns: GridColDef[] = [
 ]
 
 export default function DataGridDemo() {
-  const data = coffees
-  const [rowSelectionModel, setRowSelectionModel] = React.useState<any>([])
-
-  const handleDeleteClick = () => {
-    toast.success(rowSelectionModel + " " + "product deleted")
+  const dispatch = useDispatch<AppDispatch>()
+  const [productIds, setProductIds] = React.useState<any>([])
+  const handleDeleteClick = async () => {
+    try {
+      await dispatch(deleteProductById(productIds)).then(() => {
+        dispatch(fetchAllProducts())
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
+
+  React.useEffect(() => {
+    dispatch(fetchAllProducts())
+  }, [dispatch])
+  const data = useSelector((state: RootState) => state.productsSlice.products)
+  console.log(data)
 
   return (
     <>
       <Box sx={{ height: 400 }}>
         <DataGrid
+          getRowId={(row) => row?._id}
           rows={data}
           columns={columns}
           onRowSelectionModelChange={(newRowSelectionModel: any) => {
-            setRowSelectionModel(newRowSelectionModel)
+            setProductIds(newRowSelectionModel)
           }}
-          rowSelectionModel={rowSelectionModel}
+          rowSelectionModel={productIds}
           checkboxSelection
         />
-        {rowSelectionModel.length > 0 && (
+        {productIds.length > 0 && (
           <div className=" flex items-center text-[15px] text-red-500 cursor-pointer hover:text-red-700">
             <Button
               onClick={handleDeleteClick}
@@ -157,7 +181,7 @@ export default function DataGridDemo() {
               className="flex items-center"
             >
               <FaTrashCan />
-              <span>({rowSelectionModel.length})</span>
+              <span>({productIds.length})</span>
             </Button>
           </div>
         )}
