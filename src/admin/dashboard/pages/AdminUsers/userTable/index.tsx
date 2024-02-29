@@ -14,11 +14,27 @@ import {
 
 const columns: GridColDef[] = [
   {
-    field: "id",
+    field: "_id",
     headerName: "ID",
     width: 90,
     sortable: false,
     disableColumnMenu: true,
+  },
+  {
+    field: "image",
+    type: "actions",
+    headerName: "image",
+    renderCell: (): any => {
+      return (
+        <div className="flex overflow-hidden rounded-lg">
+          <img
+            className="!w-10 !h-10 object-cover"
+            src="https://minimal-kit-react.vercel.app/assets/images/avatars/avatar_12.jpg"
+            alt=""
+          />
+        </div>
+      )
+    },
   },
   {
     field: "username",

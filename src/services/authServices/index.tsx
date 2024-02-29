@@ -21,6 +21,13 @@ export const users = async () => {
     url: "/users",
   })
 }
+export const userInfo = async (payload: any) => {
+  return await api({
+    method: "get",
+    url: "/userinfo",
+    header: payload,
+  })
+}
 
 export const deleteUsers = async (payload: any) => {
   return await api({

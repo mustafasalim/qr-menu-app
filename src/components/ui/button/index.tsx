@@ -11,7 +11,7 @@ function Button({ text, variant, type }: buttonOptions) {
     <button
       type={type}
       className={classNames(
-        "p-2 px-4 rounded-md bg-slate-200 hover:opacity-45 transition-all",
+        "p-2 px-4 rounded-md hover:opacity-45 transition-all",
         {
           "bg-blue-500 text-white": variant === "primary",
           "bg-red-500 text-white": variant === "danger",

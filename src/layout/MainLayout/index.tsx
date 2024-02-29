@@ -6,7 +6,7 @@ import Header from "./Header"
 
 function MainLayout() {
   return (
-    <section className="bg-[#111315]">
+    <section className="bg-[#111315] ">
       <Header />
       <Menu menuTitle={menu} />
       <Outlet />

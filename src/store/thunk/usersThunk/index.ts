@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 import {
+  authLogin,
   authRegister,
+  authUserInfo,
   fetchDeleteUsers,
   fetchGetAllUsers,
   fetchUpdateUser,
@@ -25,6 +27,19 @@ const usersSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      // -----------------------------register---------------------------
+      .addCase(authLogin.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(authLogin.fulfilled, (state) => {
+        state.loading = false
+      })
+      .addCase(authLogin.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.error.message || "Bir hata oluştu."
+      })
+      // -----------------------------login---------------------------
       .addCase(authRegister.pending, (state) => {
         state.loading = true
         state.error = null
@@ -34,6 +49,19 @@ const usersSlice = createSlice({
         toast.success("user addedd")
       })
       .addCase(authRegister.rejected, (state, action) => {
+        state.loading = false
+        state.error = action.error.message || "Bir hata oluştu."
+        toast.error("kullanıcı var")
+      })
+      // -----------------------------userİnfo---------------------------
+      .addCase(authUserInfo.pending, (state) => {
+        state.loading = true
+        state.error = null
+      })
+      .addCase(authUserInfo.fulfilled, (state) => {
+        state.loading = false
+      })
+      .addCase(authUserInfo.rejected, (state, action) => {
         state.loading = false
         state.error = action.error.message || "Bir hata oluştu."
         toast.error("kullanıcı var")

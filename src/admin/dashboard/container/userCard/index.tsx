@@ -2,6 +2,10 @@ import Avatar from "@mui/material/Avatar"
 import * as React from "react"
 import { Menu, MenuItem, MenuProps, alpha, styled } from "@mui/material"
 import { IoLogOut } from "react-icons/io5"
+import { useDispatch } from "react-redux"
+import { authUserInfo } from "../../../../store/thunk/usersThunk/fetchThunk"
+import { AppDispatch } from "../../../../store/store"
+import { useNavigate } from "react-router-dom"
 function UserCards() {
   const StyledMenu = styled((props: MenuProps) => (
     <Menu
@@ -53,6 +57,23 @@ function UserCards() {
   const handleClose = () => {
     setAnchorEl(null)
   }
+  const [user, setUser] = React.useState<any>([])
+  const dispatch = useDispatch<AppDispatch>()
+  const navigate = useNavigate()
+  const token = localStorage.getItem("token")
+
+  React.useEffect(() => {
+    dispatch(
+      authUserInfo({
+        Authorization: `Bearer ${token}`,
+      })
+    ).then((res) => setUser(res.payload))
+  }, [dispatch])
+
+  const logoutHandle = () => {
+    localStorage.removeItem("token")
+    navigate("/login")
+  }
 
   return (
     <>
@@ -64,7 +85,7 @@ function UserCards() {
           alt="Remy Sharp"
           src="https://minimal-kit-react.vercel.app/assets/images/avatars/avatar_25.jpg"
         />
-        <span className="text-sm">Mustafa salim</span>
+        <span className="text-sm">{user.username}</span>
       </button>
 
       <StyledMenu
@@ -74,7 +95,10 @@ function UserCards() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem className="flex items-center justify-center !font-bold gap-x-2 !text-red-500">
+        <MenuItem
+          onClick={logoutHandle}
+          className="flex items-center justify-center !font-bold gap-x-2 !text-red-500"
+        >
           <IoLogOut className="text-[22px]" />
           <span>Log out</span>
         </MenuItem>

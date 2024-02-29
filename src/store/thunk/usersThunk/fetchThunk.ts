@@ -1,8 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import {
   deleteUsers,
+  login,
   register,
   updateUsers,
+  userInfo,
   users,
 } from "../../../services/authServices"
 
@@ -14,6 +16,21 @@ export const authRegister = createAsyncThunk(
   }
 )
 
+export const authLogin = createAsyncThunk(
+  "users/authLogin",
+  async (payload: any) => {
+    const response = await login(payload)
+    return response.data
+  }
+)
+
+export const authUserInfo = createAsyncThunk(
+  "users/authUserInfo",
+  async (payload: any) => {
+    const response = await userInfo(payload)
+    return response.data
+  }
+)
 export const fetchGetAllUsers = createAsyncThunk(
   "users/fetchGetAllUsers",
   async () => {
