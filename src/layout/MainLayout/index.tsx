@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch, RootState } from "../../store/store"
 import { _backgroundColor, _color } from "../../store/apperance"
 import Toggle from "../../components/ui/toggle"
-import Loading from "../../components/ui/loading"
 
 function MainLayout() {
   const apperance = useSelector((state: RootState) => state.apperanceSlice)

@@ -4,7 +4,7 @@ interface buttonOptions {
   text: string
   variant?: string
   type?: any
-  onClick: () => void
+  onClick?: () => void
 }
 
 function Button({ text, variant, type, onClick }: buttonOptions) {
