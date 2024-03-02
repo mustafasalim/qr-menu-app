@@ -23,6 +23,7 @@ interface ProductFormOptions {
   rating: number
   popular: boolean
   stock: boolean
+  category: string
 }
 
 function ProductForm({ data }: any) {
@@ -35,6 +36,7 @@ function ProductForm({ data }: any) {
       rating: data ? data.rating : 0,
       popular: data ? data.popular : false,
       stock: data ? data.stock : false,
+      category: data ? data.category : false,
     },
     onSubmit: async (values) => {
       if (data) {
@@ -116,6 +118,28 @@ function ProductForm({ data }: any) {
         </FormControl>
       </label>
       <hr />
+      <label className="flex items-center gap-2">
+        <h1>Category</h1>
+
+        <FormControl
+          sx={{ minWidth: 120 }}
+          size="small"
+        >
+          <Select
+            placeholder=""
+            name="category"
+            defaultValue={formik.values.category}
+            value={formik.values.category}
+            onChange={formik.handleChange}
+          >
+            <MenuItem value="Hot">hot coffee</MenuItem>
+            <MenuItem value="Cold">cold Coffee</MenuItem>
+            <MenuItem value="Snacks">snacks</MenuItem>
+            <MenuItem value="Dessert">dessert</MenuItem>
+          </Select>
+        </FormControl>
+      </label>
+      <hr />
       <label className="flex gap-x-4">
         <div className="flex items-center">
           <h1>Popular</h1>
@@ -144,7 +168,7 @@ function ProductForm({ data }: any) {
           variant="contained"
           type="submit"
         >
-          Add
+          {data ? "update" : "add"}
         </Button>
       </label>
     </form>

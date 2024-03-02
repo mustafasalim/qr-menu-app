@@ -52,6 +52,12 @@ const columns: GridColDef[] = [
     disableColumnMenu: true,
   },
   {
+    field: "category",
+    headerName: "Category",
+    width: 150,
+    sortable: false,
+  },
+  {
     field: "popular",
     headerName: "Popular",
     width: 150,

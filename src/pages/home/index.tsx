@@ -18,27 +18,41 @@ function Home() {
   const error = useSelector((state: RootState) => state.productsSlice.error)
 
   if (loading) {
-    return <Loading />
+    return (
+      <div className="w-full lg:flex lg:flex-col items-center justify-center mt-32 mb-32">
+        <h1 className="lg:w-[1200px] flex items-center justify-center lg:justify-start text-[35px] text-[color:var(--color-primary)]">
+          Special Products
+        </h1>
+        <div className="lg:w-[1200px] items-center justify-center mt-10 lg:items-center lg:justify-center lg:flex lg:flex-wrap  grid gap-4 lg:gap-4">
+          <Loading />
+        </div>
+      </div>
+    )
   }
   if (error) {
     return <div>error page</div>
   }
+
   return (
-    <div className="w-full lg:flex lg:flex-col items-center justify-center ">
-      <h1 className="lg:w-[1200px] flex items-center justify-center lg:justify-start text-[35px] text-[#FEF7EE]">
-        all produts
+    <div className="w-full lg:flex lg:flex-col items-center justify-center mt-32 mb-32">
+      <h1 className="lg:w-[1200px] flex items-center justify-center lg:justify-start text-[35px] text-[color:var(--color-primary)]">
+        Special Products
       </h1>
       <div className="lg:w-[1200px] items-center justify-center mt-10 lg:items-center lg:justify-between lg:flex lg:flex-wrap  grid gap-4 lg:gap-4">
-        {coffeeData.map((product: any) => (
-          <Product
-            productImg={product.image}
-            productTitle={product.name}
-            productPrice={product.price}
-            popular={product.popular}
-            stock={product.stock}
-            rating={product.rating}
-          />
-        ))}
+        {coffeeData.map((product: any) => {
+          if (product.popular === true) {
+            return (
+              <Product
+                productImg={product.image}
+                productTitle={product.name}
+                productPrice={product.price}
+                popular={product.popular}
+                stock={product.stock}
+                rating={product.rating}
+              />
+            )
+          }
+        })}
       </div>
     </div>
   )

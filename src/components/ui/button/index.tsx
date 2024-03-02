@@ -4,11 +4,13 @@ interface buttonOptions {
   text: string
   variant?: string
   type?: any
+  onClick: () => void
 }
 
-function Button({ text, variant, type }: buttonOptions) {
+function Button({ text, variant, type, onClick }: buttonOptions) {
   return (
     <button
+      onClick={onClick}
       type={type}
       className={classNames(
         "p-2 px-4 rounded-md hover:opacity-45 transition-all",

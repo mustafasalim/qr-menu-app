@@ -4,19 +4,19 @@ export const menu = [
     element: "Main Menu",
   },
   {
-    path: "/kategoriler/hot-coffe",
-    element: "Hot Coffee",
+    path: "/kategoriler/Hot",
+    element: "Hot",
   },
   {
-    path: "/kategoriler/snacks",
+    path: "/kategoriler/Snacks",
     element: "Snacks",
   },
   {
-    path: "/kategoriler/cold-coffee",
-    element: "Cold Coffee",
+    path: "/kategoriler/Cold",
+    element: "Cold",
   },
   {
-    path: "/kategoriler/dessert",
+    path: "/kategoriler/Dessert",
     element: "Dessert",
   },
 ]

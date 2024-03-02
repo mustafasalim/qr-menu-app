@@ -17,10 +17,10 @@ function Product(props: ProductProps) {
   return (
     <div
       className={classNames(
-        `flex flex-col  p-2 shadow  rounded-md w-[300px] overflow-hidden`,
+        `flex flex-col  p-2 shadow  rounded-2xl w-[300px] overflow-hidden`,
         {
-          "!shadow-red-500 shadow-md !opacity-45": stock === false,
-          "shadow-yellow-500 shadow-md opacity-100": popular === true,
+          "!shadow-red-500 shadow-md !opacity-35": stock === false,
+          "shadow-md opacity-100": popular === true,
         }
       )}
     >
@@ -38,7 +38,7 @@ function Product(props: ProductProps) {
         )}
 
         <img
-          className="rounded-md w-full max-w-[300px] max-h-[173px] object-cover "
+          className="rounded-2xl w-full max-w-[300px] max-h-[173px] object-cover "
           src={productImg}
           alt=""
         />
@@ -46,7 +46,9 @@ function Product(props: ProductProps) {
       <div className="grid gap-y-2 py-2">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-[20px] text-[#FEF7EE]">{productTitle}</h1>
+            <h1 className="text-[20px] text-[color:var(--color-primary)]">
+              {productTitle}
+            </h1>
           </div>
           <div>
             <Tag title={"$" + productPrice} />

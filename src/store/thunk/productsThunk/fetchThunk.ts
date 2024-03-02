@@ -1,16 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import {
-  getProducts,
   getAllProducts,
   addProducts,
   updateProducts,
   deleteProduct,
+  getCategory,
 } from "../../../services/productServices"
 
 export const fetchProductsByCategory = createAsyncThunk(
   "products/fetchProductsByCategory",
-  async (category) => {
-    const response = await getProducts(category)
+  async (category: any) => {
+    const response = await getCategory(category)
     return response.data
   }
 )

@@ -7,6 +7,13 @@ export const getProducts = async (category: any) => {
   })
 }
 
+export const getCategory = async (category: any) => {
+  return await api({
+    method: "get",
+    url: `/products/category/${category}`,
+  })
+}
+
 export const getAllProducts = () => {
   return api({
     method: "get",
