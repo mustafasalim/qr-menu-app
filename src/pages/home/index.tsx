@@ -30,7 +30,16 @@ function Home() {
     )
   }
   if (error) {
-    return <div>error page</div>
+    return (
+      <div className="w-full lg:flex lg:flex-col items-center justify-center mt-32 mb-32">
+        <h1 className="lg:w-[1200px] flex items-center justify-center lg:justify-start text-[35px] text-[color:var(--color-primary)]">
+          Special Products
+        </h1>
+        <div className="lg:w-[1200px] items-center justify-center mt-10 lg:items-center lg:justify-center lg:flex lg:flex-wrap  grid gap-4 lg:gap-4">
+          <Loading />
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -39,10 +48,11 @@ function Home() {
         Special Products
       </h1>
       <div className="lg:w-[1200px] items-center justify-center mt-10 lg:items-center lg:justify-between lg:flex lg:flex-wrap  grid gap-4 lg:gap-4">
-        {coffeeData.map((product: any) => {
+        {coffeeData.map((product: any, key) => {
           if (product.popular === true) {
             return (
               <Product
+                key={key}
                 productImg={product.image}
                 productTitle={product.name}
                 productPrice={product.price}

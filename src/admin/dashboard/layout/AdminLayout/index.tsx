@@ -13,10 +13,10 @@ function AdminLayout() {
 
   if (token) {
     return (
-      <div>
+      <div className="relative">
         {modals.length > 0 && <Modal />}
-        <div className="flex mx-auto bg-[#F9FAFB]">
-          <div className="z-5">
+        <div className="flex mx-auto ">
+          <div className=" z-20 absolute top-0">
             <Header />
           </div>
 

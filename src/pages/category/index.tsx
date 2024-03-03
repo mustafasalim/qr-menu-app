@@ -41,8 +41,9 @@ const CategoryPage = () => {
         {categorySlug}
       </h1>
       <div className="lg:w-[1200px] items-center justify-center mt-10 lg:items-center lg:justify-between lg:flex lg:flex-wrap  grid gap-4 lg:gap-4">
-        {coffee.map((product: any) => (
+        {coffee.map((product: any, key) => (
           <Product
+            key={key}
             productImg={product.image}
             productTitle={product.name}
             productPrice={product.price}

@@ -20,13 +20,6 @@ import { useDispatch, useSelector } from "react-redux"
 
 const columns: GridColDef[] = [
   {
-    field: "_id",
-    headerName: "ID",
-    width: 90,
-    sortable: false,
-    disableColumnMenu: true,
-  },
-  {
     field: "image",
     type: "actions",
     headerName: "image",

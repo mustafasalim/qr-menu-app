@@ -15,10 +15,11 @@ import {
 } from "../../../../../store/thunk/productsThunk/fetchThunk"
 import { useDispatch } from "react-redux"
 import { AppDispatch } from "../../../../../store/store"
+import * as yup from "yup"
 
 interface ProductFormOptions {
   name: string
-  image: any
+  image: string
   price: number
   rating: number
   popular: boolean
@@ -28,16 +29,25 @@ interface ProductFormOptions {
 
 function ProductForm({ data }: any) {
   const dispatch = useDispatch<AppDispatch>()
+
+  const validationSchema = yup.object({
+    name: yup.string().required(),
+    image: yup.string().required(),
+    price: yup.number().required(),
+    rating: yup.number().required(),
+    category: yup.string().required(),
+  })
   const formik = useFormik<ProductFormOptions>({
     initialValues: {
       name: data ? data.name : "",
       image: data ? data.image : "",
-      price: data ? data.price : 0,
-      rating: data ? data.rating : 0,
+      price: data ? data.price : null,
+      rating: data ? data.rating : null,
       popular: data ? data.popular : false,
       stock: data ? data.stock : false,
-      category: data ? data.category : false,
+      category: data ? data.category : null,
     },
+    validationSchema: validationSchema,
     onSubmit: async (values) => {
       if (data) {
         await dispatch(
@@ -68,6 +78,9 @@ function ProductForm({ data }: any) {
           name="name"
           value={formik.values.name}
           size="small"
+          onBlur={formik.handleBlur}
+          error={formik.touched.name && Boolean(formik.errors.name)}
+          helperText={formik.touched.name && formik.errors.name}
           onChange={formik.handleChange}
         />
       </label>
@@ -79,6 +92,9 @@ function ProductForm({ data }: any) {
           placeholder="https://image.png"
           type="text"
           size="small"
+          onBlur={formik.handleBlur}
+          error={formik.touched.image && Boolean(formik.errors.image)}
+          helperText={formik.touched.image && formik.errors.image}
           value={formik.values.image}
           onChange={formik.handleChange}
         />
@@ -91,6 +107,9 @@ function ProductForm({ data }: any) {
           placeholder="10"
           type="number"
           size="small"
+          onBlur={formik.handleBlur}
+          error={formik.touched.price && Boolean(formik.errors.price)}
+          helperText={formik.touched.price && formik.errors.price}
           value={formik.values.price}
           onChange={formik.handleChange}
         />
@@ -106,6 +125,8 @@ function ProductForm({ data }: any) {
           <Select
             placeholder="fwaw"
             name="rating"
+            onBlur={formik.handleBlur}
+            error={formik.touched.rating && Boolean(formik.errors.rating)}
             defaultValue={formik.values.rating}
             value={formik.values.rating}
             onChange={formik.handleChange}
@@ -115,6 +136,11 @@ function ProductForm({ data }: any) {
             <MenuItem value={4.0}>{4.0}</MenuItem>
             <MenuItem value={4.9}>{4.9}</MenuItem>
           </Select>
+          {formik.touched.rating && (
+            <div className="text-red-500 text-[12px]">
+              {formik.errors.rating}
+            </div>
+          )}
         </FormControl>
       </label>
       <hr />
@@ -128,6 +154,8 @@ function ProductForm({ data }: any) {
           <Select
             placeholder=""
             name="category"
+            onBlur={formik.handleBlur}
+            error={formik.touched.category && Boolean(formik.errors.category)}
             defaultValue={formik.values.category}
             value={formik.values.category}
             onChange={formik.handleChange}
@@ -137,6 +165,11 @@ function ProductForm({ data }: any) {
             <MenuItem value="Snacks">snacks</MenuItem>
             <MenuItem value="Dessert">dessert</MenuItem>
           </Select>
+          {formik.touched.category && (
+            <div className="text-red-500 text-[12px]">
+              {formik.errors.category}
+            </div>
+          )}
         </FormControl>
       </label>
       <hr />

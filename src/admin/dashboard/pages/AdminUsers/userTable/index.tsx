@@ -14,13 +14,6 @@ import {
 
 const columns: GridColDef[] = [
   {
-    field: "_id",
-    headerName: "ID",
-    width: 90,
-    sortable: false,
-    disableColumnMenu: true,
-  },
-  {
     field: "image",
     type: "actions",
     headerName: "image",
@@ -46,25 +39,16 @@ const columns: GridColDef[] = [
   {
     field: "email",
     headerName: "Email",
-    width: 200,
+    width: 150,
     sortable: false,
     disableColumnMenu: true,
   },
-  {
-    field: "password",
-    headerName: "password",
-    width: 200,
-    sortable: false,
-    disableColumnMenu: true,
-    renderCell: () => {
-      return <div>***************</div>
-    },
-  },
+
   {
     field: "actions",
     type: "actions",
     headerName: "Actions",
-    width: 200,
+    width: 150,
 
     renderCell: (props) => {
       return (
