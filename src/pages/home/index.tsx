@@ -4,6 +4,7 @@ import { AppDispatch, RootState } from "../../store/store"
 import { fetchAllProducts } from "../../store/thunk/productsThunk/fetchThunk"
 import Product from "../../components/ui/product"
 import Loading from "../../components/ui/loading"
+import ErrorBoundary from "../../errorBoundry"
 
 function Home() {
   const dispatch = useDispatch<AppDispatch>()
@@ -48,21 +49,23 @@ function Home() {
         Special Products
       </h1>
       <div className="lg:w-[1200px] items-center justify-center mt-10 lg:items-center lg:justify-between lg:flex lg:flex-wrap  grid gap-4 lg:gap-4">
-        {coffeeData.map((product: any, key) => {
-          if (product.popular === true) {
-            return (
-              <Product
-                key={key}
-                productImg={product.image}
-                productTitle={product.name}
-                productPrice={product.price}
-                popular={product.popular}
-                stock={product.stock}
-                rating={product.rating}
-              />
-            )
-          }
-        })}
+        <ErrorBoundary>
+          {coffeeData.map((product: any, key) => {
+            if (product.popular === true) {
+              return (
+                <Product
+                  key={key}
+                  productImg={product.image}
+                  productTitle={product.name}
+                  productPrice={product.price}
+                  popular={product.popular}
+                  stock={product.stock}
+                  rating={product.rating}
+                />
+              )
+            }
+          })}
+        </ErrorBoundary>
       </div>
     </div>
   )

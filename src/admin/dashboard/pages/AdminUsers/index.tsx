@@ -2,6 +2,7 @@ import UsersTable from "./userTable"
 import { FaPlus } from "react-icons/fa"
 import { Button } from "@mui/material"
 import { createModal } from "../../../../store/modal/hook"
+import ErrorBoundary from "../../../../errorBoundry"
 
 function AdminUsers() {
   return (
@@ -18,7 +19,9 @@ function AdminUsers() {
           </Button>
         </div>
         <div className="w-full ">
-          <UsersTable />
+          <ErrorBoundary>
+            <UsersTable />
+          </ErrorBoundary>
         </div>
       </div>
     </section>

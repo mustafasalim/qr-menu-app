@@ -21,13 +21,13 @@ function RegisterForm({ data }: any) {
   const validationShema = yup.object({
     username: yup.string().required().max(20).min(3),
     email: yup.string().email().required(),
-    password: yup.string().min(8).required(),
+    password: yup.string().required(),
   })
   const formik = useFormik<formikConfig>({
     initialValues: {
       username: data ? data.username : "",
       email: data ? data.email : "",
-      password: data ? data.password : "",
+      password: data && "",
     },
     validationSchema: validationShema,
     onSubmit: async (values) => {

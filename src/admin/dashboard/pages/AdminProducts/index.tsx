@@ -2,6 +2,7 @@ import { Button } from "@mui/material"
 import { FaPlus } from "react-icons/fa"
 import { createModal, useModals } from "../../../../store/modal/hook"
 import DataGridDemo from "./ProductTable/productData"
+import ErrorBoundary from "../../../../errorBoundry"
 
 function AdminProductsPage() {
   const modal = useModals()
@@ -23,7 +24,9 @@ function AdminProductsPage() {
           </Button>
         </div>
 
-        <DataGridDemo />
+        <ErrorBoundary>
+          <DataGridDemo />
+        </ErrorBoundary>
       </div>
     </section>
   )

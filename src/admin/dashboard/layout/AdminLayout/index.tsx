@@ -24,8 +24,7 @@ function AdminLayout() {
             <TitleHeader />
             <Outlet />
             <Toaster />
-          </div>
-        </div>
+          </div>        </div>
       </div>
     )
   } else {

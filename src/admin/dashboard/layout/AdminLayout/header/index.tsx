@@ -4,6 +4,7 @@ import UserCards from "../../../container/userCard"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { IoMenu } from "react-icons/io5"
+import ErrorBoundary from "../../../../../errorBoundry"
 
 function Header() {
   const [isVisible, setIsVisible] = useState(false)
@@ -30,7 +31,9 @@ function Header() {
               alt=""
             />
           </Link>
-          <UserCards />
+          <ErrorBoundary>
+            <UserCards />
+          </ErrorBoundary>
           <DasboardMenu />
         </header>
       </motion.div>
